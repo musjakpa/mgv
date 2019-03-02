@@ -23,15 +23,15 @@ exports.postAllProducts = (req, res, next ) => {
     }).catch(err => console.log(err));
 };
 
-exports.getAllProducts = (req, res, next) => {
-    let product = {
-        title: 'item 1',
-        description: 'fsafjsafjsjkdf',
-        remark: 'ufsfsdosnonsd',
-        quantity: 30,
-        price: 'RM 5000.00',
-        amount: 'RM 15,000.00'
-    }
+exports.getAllProducts = async (req, res, next) => {
+    let product = await Product.find({}).exec();
 
     res.render('index', { product });
+};
+
+exports.getOneProducts = async (req, res, next) => {
+    
+    let product = await Product.findOne({ 'slugs': req.params.slug }).exec();
+
+    res.render('productdata', { product });
 };

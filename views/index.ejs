@@ -1,26 +1,24 @@
+<div class="ui placeholder segment">
+  <div class="ui icon header">
+    <i class="pdf file outline icon"></i>
+    <h1>Home Page</h1>
+  </div>
+  <a class="ui primary button" href="/listjournals">View All Journals</a>
+</div>
+
+<div>welcome to the club</div>
+
+<%= product.title %> <br>
+<%= product.description %> <br>
 
 
-
-    <div class="ui placeholder segment">
-        <div class="ui icon header">
-          <i class="pdf file outline icon"></i>
-          <h1>Home Page</h1>
-        </div>
-        <a class="ui primary button" href="/listjournals">View All Journals</a>
-      </div>
-
-    <div>welcome to the club</div>
-
-    <%= product.title %> <br>
-    <%= product.description %> <br>
-    <%= product.remark %> <br>
-    <%= product.quantity %> <br>
-    <%= product.price %> <br>
-    <%= product.amount %> <br>
-    
 </div>
 
 
-
+<% product.forEach(function(p) { %>
+   <%= p.title %><br>
+   <%= p.description %>
+   <a href="/<%= p.slugs %>">Link</a>
+<%}) %>
 
 <%- include('partials/footer.ejs') %>
